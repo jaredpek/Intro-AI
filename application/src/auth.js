@@ -4,7 +4,7 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import MongoDbClient from "./lib/mongo";
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: MongoDBAdapter(MongoDbClient, {databaseName: process.env.MONGO_DB}),
+  adapter: MongoDBAdapter(MongoDbClient, {databaseName: process.env.MONGODB_DB}),
   providers: [
     Google,
   ],

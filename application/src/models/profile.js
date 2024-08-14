@@ -15,7 +15,7 @@ const workExperienceSchema = new Schema({
   details: String
 });
 
-const profileSchema = new Schema({
+export const profileSchema = new Schema({
   name: String,
   email: String,
   contactNo: String,
@@ -26,4 +26,6 @@ const profileSchema = new Schema({
   additionalInformation: String,
 });
 
-export const Profile = mongoose.model("Profile", profileSchema);
+export const Profile = mongoose.models.Profile || mongoose.model(
+  "Profile", profileSchema
+);
