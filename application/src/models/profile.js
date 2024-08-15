@@ -1,5 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
+const socialLinkSchema = new Schema({
+  name: String,
+  link: String,
+})
+
 const educationSchema = new Schema({
   typeOfStudy: String,
   areaOfStudy: String,
@@ -15,17 +20,22 @@ const workExperienceSchema = new Schema({
   company: String,
   start: Date,
   end: Date,
-  details: String
+  details: String,
+});
+
+const languageSchema = new Schema({
+  language: String,
+  proficiency: String,
 });
 
 export const profileSchema = new Schema({
   name: String,
   email: String,
   contactNo: String,
-  socialLinks: [String],
+  socialLinks: [socialLinkSchema],
   education: [educationSchema],
   workExperience: [workExperienceSchema],
-  languages: [String],
+  languages: [languageSchema],
   additionalInformation: String,
 });
 

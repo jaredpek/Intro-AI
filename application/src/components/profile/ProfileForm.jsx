@@ -2,6 +2,13 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import InputField from "../fields/InputField";
+import { IoIosAdd } from "react-icons/io";
+
+const defaultSocialLinkSchema = {
+  name: "",
+  link: "",
+};
 
 const defaultEducationSchema = {
   typeOfStudy: "",
@@ -21,6 +28,11 @@ const defaultWorkExperenceSchema = {
   details: ""
 };
 
+const defaultLanguageSchema = {
+  language: "",
+  proficiency: "",
+};
+
 const defaultProfileSchema = {
   name: "",
   email: "",
@@ -34,18 +46,13 @@ const defaultProfileSchema = {
 
 export default function ProfileForm({user}) {
   const [profile, setProfile] = useState(defaultProfileSchema);
-  const [socialLink, setSocialLink] = useState("");
-  const [language, setLanguage] = useState("");
+  const [socialLink, setSocialLink] = useState(defaultSocialLinkSchema);
+  const [language, setLanguage] = useState(defaultLanguageSchema);
 
   useEffect(() => {
     if (!user) return;
     axios.get("/api/profile").then(({data}) => data && setProfile(data));
   }, [user]);
-
-  const setValue = (e, field, many=false) => {
-    const value = e.target.value;
-    many ? profile[field].push(value) : profile[field] = value;
-  };
 
   const update = async (e) => {
     e.stopPropagation();
@@ -55,7 +62,8 @@ export default function ProfileForm({user}) {
       email: "jaredpek2000@gmail.com",
       contactNo: "90909090",
       socialLinks: [
-        "github.com/jaredpek", "linkedin.com/jaredpek"
+        {name: "github", link: "www.github.com/jaredpek/"},
+        {name: "linkedin", link: "www.linked.com/in/jaredpek/"},
       ],
       education: [
         {
@@ -77,30 +85,40 @@ export default function ProfileForm({user}) {
           details: ""
         }
       ],
-      languages: ["English", "Mandarin"],
+      languages: [
+        {language: "english", proficiency: "native"},
+      ],
       additionalInformation: ""
     });
   }
 
   return <>
-    <form className="flex flex-col gap-5" onSubmit={update}>
-      <input placeholder="Name..." onChange={e => setValue(e, "name")} />
-      <input placeholder="Email..." onChange={e => setValue(e, "email")} />
-      <input placeholder="Contact No..." onChange={e => setValue(e, "contactNo")} />
-      <div className="flex">
-        <input placeholder="Social Link..." value={socialLink} onChange={e => setSocialLink(e.target.value)} />
-        <div onClick={() => {
-          profile["socialLinks"].push(socialLink);
-          setSocialLink("");
-        }}>Add</div>
-      </div>
-      <div className="flex">
-        <input placeholder="Language..." value={language} onChange={e => setLanguage(e.target.value)} />
-        <div onClick={() => {
-          profile["languages"].push(language);
-          setLanguage("");
-        }}>Add</div>
-      </div>
+    <form className="flex flex-col gap-3" onSubmit={update}>
+      <InputField title="Name">
+        <input defaultValue={profile.name} onChange={e => profile.name = e.target.value} />
+      </InputField>
+      <InputField title="Email">
+        <input defaultValue={profile.email} onChange={e => profile.email = e.target.value} />
+      </InputField>
+      <InputField title="Contact Number">
+        <input defaultValue={profile.contactNo} onChange={e => profile.contactNo = e.target.value} />
+      </InputField>
+      <InputField 
+        title="Social Link" 
+        action={() => {}}
+        actionTitle={<IoIosAdd size={24} />}
+      >
+        <input value={socialLink.name} onChange={e => setSocialLink(e.target.value)} />
+        <input value={socialLink.link} onChange={e => setSocialLink(e.target.value)} />
+      </InputField>
+      <InputField 
+        title="Language" 
+        action={() => {}}
+        actionTitle={<IoIosAdd size={24} />}
+      >
+        <input value={language.language} onChange={e => setLanguage(e.target.value)} />
+        <input value={language.proficiency} onChange={e => setLanguage(e.target.value)} />
+      </InputField>
       <button type="submit">Update Profile</button>
     </form>
   </>
