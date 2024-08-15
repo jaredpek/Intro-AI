@@ -1,15 +1,38 @@
 "use client";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function ChatBox({id}) {
-  const [profile, setProfile] = useState(null);
+  const [history, setHistory] = useState([]);
+  const [message, setMessage] = useState("");
 
-  const chat = async () => {
-    await axios.post(`/api/chat/${id}`).then(({data}) => console.log(data))
+  useEffect(() => {
+    if (history.length && history[history.length - 1].role == "user")
+      axios.post(`/api/chat/${id}`, {history, message})
+        .then(({data: {response}}) => setHistory(
+          [...history, {role: "model", parts: [{text: response}]}
+        ]))
+  }, [history]);
+
+  const send = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!message) return;
+    setHistory([...history, {role: "user", parts: [{text: message}]}]);
+    setMessage("");
   }
 
   return <>
-    <div onClick={chat}>Chat</div>
+    <div>Chat</div>
+    <form onSubmit={send}>
+      {
+        history.map(({role, parts}, i) => <div key={i}>
+          <div>{role}: {parts[0].text}</div>
+        </div>)
+      }
+      <input value={message} onChange={e => setMessage(e.target.value)} />
+      <button type="submit">Send</button>
+    </form>
   </>
 }

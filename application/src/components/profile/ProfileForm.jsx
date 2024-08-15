@@ -6,13 +6,16 @@ import axios from "axios";
 const defaultEducationSchema = {
   typeOfStudy: "",
   areaOfStudy: "",
+  institution: "",
   start: "",
   end: "",
+  grade: "",
   details: "",
 };
 
 const defaultWorkExperenceSchema = {
   title: "",
+  company: "",
   start: "",
   end: "",
   details: ""
@@ -58,21 +61,24 @@ export default function ProfileForm({user}) {
         {
           typeOfStudy: "Bachelor",
           areaOfStudy: "CS",
+          institution: "Nanyang Technological University",
           start: new Date("01/01/2022"),
           end: new Date("01/01/2026"),
-          details: "Very good",
+          grade: "4.44/5",
+          details: "Relevant coursework includes data structures and algorithms, object oriented programming, databases, operating systems",
         }
       ],
       workExperience: [
         {
           name: "Software Engineer",
+          company: "Hangr Solutions",
           start: new Date("05/27/2024"),
           end: new Date("08/25/2024"),
-          details: "Used many nice things"
+          details: ""
         }
       ],
       languages: ["English", "Mandarin"],
-      additionalInformation: "Did many good things"
+      additionalInformation: ""
     });
   }
 

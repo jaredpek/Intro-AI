@@ -3,13 +3,16 @@ import mongoose, { Schema } from "mongoose";
 const educationSchema = new Schema({
   typeOfStudy: String,
   areaOfStudy: String,
+  institution: String,
   start: Date,
   end: Date,
+  grade: String,
   details: String,
 })
 
 const workExperienceSchema = new Schema({
   title: String,
+  company: String,
   start: Date,
   end: Date,
   details: String
