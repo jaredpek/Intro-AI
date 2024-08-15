@@ -7,7 +7,7 @@ export default function LogoutButton() {
   }
   return (
     <form action={logout}>
-      <button type="submit">Logout</button>
+      <button className="bg-red-500 hover:bg-red-400" type="submit">Logout</button>
     </form>
   )
 }

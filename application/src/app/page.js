@@ -1,23 +1,22 @@
 import LoginButton from "@/components/auth/LoginButton";
-import LogoutButton from "@/components/auth/LogoutButton";
 import { auth } from "@/auth";
 import Link from "next/link";
+import Layout from "@/components/layout/Layout";
 
 export default async function Page() {
   const session = await auth();
 
-  return <>
+  return <Layout title={session ? "Welcome Back" : "Welcome to IntroAI"}>
     {
       session ?
       <div className="flex flex-col gap-3">
-        Home
-        <LogoutButton />
-        <Link href={"/profile"}>View Profile</Link>
-        <Link href={`/chat/${session.user.id}`}>Chat</Link>
+        <div>What would you link to do today?</div>
+        <div className="flex gap-1">
+          <Link className="btn" href={"/profile"}>Update Profile</Link>
+          <Link className="btn" href={`/chat/${session.user.id}`}>Start Chatting</Link>
+        </div>
       </div> :
-      <div>
-        <LoginButton />
-      </div>
+      <LoginButton />
     }
-  </>
+  </Layout>
 }

@@ -24,15 +24,19 @@ export default function ChatBox({id}) {
   }
 
   return <>
-    <div>Chat</div>
-    <form onSubmit={send}>
-      {
-        history.map(({role, parts}, i) => <div key={i}>
-          <div>{role}: {parts[0].text}</div>
-        </div>)
-      }
-      <input value={message} onChange={e => setMessage(e.target.value)} />
-      <button type="submit">Send</button>
+    {
+      !!history.length && 
+      <div className="border w-full max-h-[550px] p-4 overflow-y-auto rounded-lg">
+        {
+          history.map(({role, parts}, i) => <div key={i}>
+            <div>{role}: {parts[0].text}</div>
+          </div>)
+        }
+      </div>
+    }
+    <form className="flex flex-col gap-3" onSubmit={send}>
+      <input placeholder="Message..." value={message} onChange={e => setMessage(e.target.value)} />
+      <button type="submit">Send Message</button>
     </form>
   </>
 }
