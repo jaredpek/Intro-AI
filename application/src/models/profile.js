@@ -4,8 +4,8 @@ const educationSchema = new Schema({
   typeOfStudy: String,
   areaOfStudy: String,
   institution: String,
-  start: Date,
-  end: Date,
+  start: String,
+  end: String,
   grade: String,
   details: String,
 })
@@ -13,8 +13,8 @@ const educationSchema = new Schema({
 const workExperienceSchema = new Schema({
   title: String,
   company: String,
-  start: Date,
-  end: Date,
+  start: String,
+  end: String,
   details: String,
 });
 
@@ -31,6 +31,7 @@ export const profileSchema = new Schema({
   education: [educationSchema],
   workExperience: [workExperienceSchema],
   languages: [languageSchema],
+  interests: [String],
   additionalInformation: String,
 });
 

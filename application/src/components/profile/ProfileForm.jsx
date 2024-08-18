@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import InputField from "../fields/InputField";
-import SocialLinkSection from "./SocialLinkSection";
+import MultiValueSection from "./MultiValueSection";
 import EducationSection from "./EducationSection";
+import WorkExperienceSection from "./WorkExperienceSection";
+import LanguagesSection from "./LanguagesSection";
 
 export default function ProfileForm({user}) {
   const [nameEntry, setNameEntry] = useState("");
@@ -13,71 +15,79 @@ export default function ProfileForm({user}) {
   const [educationEntry, setEducationEntry] = useState([]);
   const [workExperienceEntry, setWorkExperienceEntry] = useState([]);
   const [languagesEntry, setLanguagesEntry] = useState([]);
-  const [socialLnksEntry, setSocialLinksEntry] = useState([]);
+  const [socialLinksEntry, setSocialLinksEntry] = useState([]);
+  const [interestsEntry, setInterestsEntry] = useState([]);
   const [additionalInformationEntry, setAdditionalInformationEntry] = useState("");
 
   useEffect(() => {
     if (!user) return;
     axios.get("/api/profile").then(({data: {
       name, email, contactNo, socialLinks, education, 
-      languages, workExperience, additionalInformation
+      languages, workExperience, interests,
+       additionalInformation
     }}) => {
-      setNameEntry(name); setEmailEntry(email); setContactNoEntry(contactNo);
-      setSocialLinksEntry(socialLinks); setEducationEntry(education);
-      setLanguagesEntry(languages); setWorkExperienceEntry(workExperience);
+      setNameEntry(name); setEmailEntry(email); 
+      setContactNoEntry(contactNo); setSocialLinksEntry(socialLinks); 
+      setEducationEntry(education); setLanguagesEntry(languages); 
+      setWorkExperienceEntry(workExperience); setInterestsEntry(interests); 
       setAdditionalInformationEntry(additionalInformation);
     })
   }, [user])
 
-  const update = async (e) => {
-    e.stopPropagation();
-    e.preventDefault();
+  const update = async () => {
     await axios.put("/api/profile", {
-      name: "Jared Pek",
-      email: "jaredpek2000@gmail.com",
-      contactNo: "90909090",
-      socialLinks: ["www.github.com/jaredpek/", "www.linked.com/in/jaredpek/"],
-      education: [
-        {
-          typeOfStudy: "Bachelor",
-          areaOfStudy: "CS",
-          institution: "Nanyang Technological University",
-          start: new Date("01/01/2022"),
-          end: new Date("01/01/2026"),
-          grade: "4.44/5",
-          details: "Relevant coursework includes data structures and algorithms, object oriented programming, databases, operating systems",
-        }
-      ],
-      workExperience: [
-        {
-          name: "Software Engineer",
-          company: "Hangr Solutions",
-          start: new Date("05/27/2024"),
-          end: new Date("08/25/2024"),
-          details: ""
-        }
-      ],
-      languages: [
-        {language: "english", proficiency: "native"},
-      ],
-      additionalInformation: ""
+      name: nameEntry, email: emailEntry, contactNo: contactNoEntry,
+      education: educationEntry, workExperience: workExperienceEntry,
+      languages: languagesEntry, socialLinks: socialLinksEntry,
+      additionalInformation: additionalInformationEntry,
+      interests: interestsEntry, 
     });
   }
 
   return <>
-    <form className="flex flex-col gap-3" onSubmit={update}>
+    <div className="flex flex-col gap-3">
       <InputField title="Name">
-        <input defaultValue={nameEntry} onChange={e => setNameEntry(e.target.value)} />
+        <input 
+          defaultValue={nameEntry} 
+          onChange={e => setNameEntry(e.target.value)} 
+        />
       </InputField>
       <InputField title="Email">
-        <input defaultValue={emailEntry} onChange={e => setEmailEntry(e.target.value)} />
+        <input 
+          defaultValue={emailEntry} 
+          onChange={e => setEmailEntry(e.target.value)}
+        />
       </InputField>
       <InputField title="Contact Number">
-        <input defaultValue={contactNoEntry} onChange={e => setContactNoEntry(e.target.value)} />
+        <input 
+          defaultValue={contactNoEntry} 
+          onChange={e => setContactNoEntry(e.target.value)}
+        />
       </InputField>
-      <EducationSection value={educationEntry} setValue={setEducationEntry} />
-      <SocialLinkSection value={socialLnksEntry} setValue={setSocialLinksEntry} />
-      <button type="submit">Update Profile</button>
-    </form>
+      <EducationSection 
+        value={educationEntry} setValue={setEducationEntry} 
+      />
+      <WorkExperienceSection
+        value={workExperienceEntry} setValue={setWorkExperienceEntry}
+      />
+      <LanguagesSection
+        value={languagesEntry} setValue={setLanguagesEntry}
+      />
+      <MultiValueSection 
+        value={interestsEntry} setValue={setInterestsEntry} 
+        title={"Interests"} inputTitle={"Name"}
+      />
+      <MultiValueSection 
+        value={socialLinksEntry} setValue={setSocialLinksEntry} 
+        title={"Social Links"} inputTitle={"Link"}
+      />
+      <InputField title="Additional Information">
+        <textarea 
+          value={additionalInformationEntry} 
+          onChange={e => setAdditionalInformationEntry(e.target.value)}
+        />
+      </InputField>
+      <button onClick={update}>Update Profile</button>
+    </div>
   </>
 }
