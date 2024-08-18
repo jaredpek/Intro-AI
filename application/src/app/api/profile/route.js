@@ -5,9 +5,9 @@ import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
   await getMongooseClient();
+  const {user: {id}} = await auth();
+  const profile = await Profile.findById(id);
   try {
-    const {user: {id}} = await auth();
-    const profile = await Profile.findById(id);
     return NextResponse.json(profile, {status: 200});
   } catch (error) {
     return NextResponse.json(

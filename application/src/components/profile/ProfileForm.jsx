@@ -3,56 +3,31 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import InputField from "../fields/InputField";
-import { IoIosAdd } from "react-icons/io";
-
-const defaultSocialLinkSchema = {
-  name: "",
-  link: "",
-};
-
-const defaultEducationSchema = {
-  typeOfStudy: "",
-  areaOfStudy: "",
-  institution: "",
-  start: "",
-  end: "",
-  grade: "",
-  details: "",
-};
-
-const defaultWorkExperenceSchema = {
-  title: "",
-  company: "",
-  start: "",
-  end: "",
-  details: ""
-};
-
-const defaultLanguageSchema = {
-  language: "",
-  proficiency: "",
-};
-
-const defaultProfileSchema = {
-  name: "",
-  email: "",
-  contactNo: "",
-  socialLinks: [],
-  education: [],
-  workExperience: [],
-  languages: [],
-  additionalInformation: "",
-};
+import SocialLinkSection from "./SocialLinkSection";
+import EducationSection from "./EducationSection";
 
 export default function ProfileForm({user}) {
-  const [profile, setProfile] = useState(defaultProfileSchema);
-  const [socialLink, setSocialLink] = useState(defaultSocialLinkSchema);
-  const [language, setLanguage] = useState(defaultLanguageSchema);
+  const [nameEntry, setNameEntry] = useState("");
+  const [emailEntry, setEmailEntry] = useState("");
+  const [contactNoEntry, setContactNoEntry] = useState("");
+  const [educationEntry, setEducationEntry] = useState([]);
+  const [workExperienceEntry, setWorkExperienceEntry] = useState([]);
+  const [languagesEntry, setLanguagesEntry] = useState([]);
+  const [socialLnksEntry, setSocialLinksEntry] = useState([]);
+  const [additionalInformationEntry, setAdditionalInformationEntry] = useState("");
 
   useEffect(() => {
     if (!user) return;
-    axios.get("/api/profile").then(({data}) => data && setProfile(data));
-  }, [user]);
+    axios.get("/api/profile").then(({data: {
+      name, email, contactNo, socialLinks, education, 
+      languages, workExperience, additionalInformation
+    }}) => {
+      setNameEntry(name); setEmailEntry(email); setContactNoEntry(contactNo);
+      setSocialLinksEntry(socialLinks); setEducationEntry(education);
+      setLanguagesEntry(languages); setWorkExperienceEntry(workExperience);
+      setAdditionalInformationEntry(additionalInformation);
+    })
+  }, [user])
 
   const update = async (e) => {
     e.stopPropagation();
@@ -61,10 +36,7 @@ export default function ProfileForm({user}) {
       name: "Jared Pek",
       email: "jaredpek2000@gmail.com",
       contactNo: "90909090",
-      socialLinks: [
-        {name: "github", link: "www.github.com/jaredpek/"},
-        {name: "linkedin", link: "www.linked.com/in/jaredpek/"},
-      ],
+      socialLinks: ["www.github.com/jaredpek/", "www.linked.com/in/jaredpek/"],
       education: [
         {
           typeOfStudy: "Bachelor",
@@ -95,30 +67,16 @@ export default function ProfileForm({user}) {
   return <>
     <form className="flex flex-col gap-3" onSubmit={update}>
       <InputField title="Name">
-        <input defaultValue={profile.name} onChange={e => profile.name = e.target.value} />
+        <input defaultValue={nameEntry} onChange={e => setNameEntry(e.target.value)} />
       </InputField>
       <InputField title="Email">
-        <input defaultValue={profile.email} onChange={e => profile.email = e.target.value} />
+        <input defaultValue={emailEntry} onChange={e => setEmailEntry(e.target.value)} />
       </InputField>
       <InputField title="Contact Number">
-        <input defaultValue={profile.contactNo} onChange={e => profile.contactNo = e.target.value} />
+        <input defaultValue={contactNoEntry} onChange={e => setContactNoEntry(e.target.value)} />
       </InputField>
-      <InputField 
-        title="Social Link" 
-        action={() => {}}
-        actionTitle={<IoIosAdd size={24} />}
-      >
-        <input value={socialLink.name} onChange={e => setSocialLink(e.target.value)} />
-        <input value={socialLink.link} onChange={e => setSocialLink(e.target.value)} />
-      </InputField>
-      <InputField 
-        title="Language" 
-        action={() => {}}
-        actionTitle={<IoIosAdd size={24} />}
-      >
-        <input value={language.language} onChange={e => setLanguage(e.target.value)} />
-        <input value={language.proficiency} onChange={e => setLanguage(e.target.value)} />
-      </InputField>
+      <EducationSection value={educationEntry} setValue={setEducationEntry} />
+      <SocialLinkSection value={socialLnksEntry} setValue={setSocialLinksEntry} />
       <button type="submit">Update Profile</button>
     </form>
   </>

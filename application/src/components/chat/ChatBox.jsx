@@ -2,17 +2,21 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Message from "./Message";
 
 export default function ChatBox({id}) {
+  const [loading, setLoading] = useState(false);
   const [history, setHistory] = useState([]);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (history.length && history[history.length - 1].role == "user")
+      setLoading(true);
       axios.post(`/api/chat/${id}`, {history, message})
         .then(({data: {response}}) => setHistory(
           [...history, {role: "model", parts: [{text: response}]}
         ]))
+        .finally(() => setLoading(false));
   }, [history]);
 
   const send = async (e) => {
@@ -26,12 +30,11 @@ export default function ChatBox({id}) {
   return <>
     {
       !!history.length && 
-      <div className="border w-full max-h-[550px] p-4 overflow-y-auto rounded-lg">
-        {
-          history.map(({role, parts}, i) => <div key={i}>
-            <div>{role}: {parts[0].text}</div>
-          </div>)
-        }
+      <div className="relative border w-full max-h-[550px] p-4 overflow-y-auto grid gap-3 rounded-lg">
+        {history.map(({role, parts}, i) => {
+          return <Message key={i} role={role} message={parts[0].text} />
+        })}
+        {loading && <Message role={"model"} message={"loading..."} />}
       </div>
     }
     <form className="flex flex-col gap-3" onSubmit={send}>
