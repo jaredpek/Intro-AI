@@ -7,8 +7,12 @@ import MultiValueSection from "./MultiValueSection";
 import EducationSection from "./EducationSection";
 import WorkExperienceSection from "./WorkExperienceSection";
 import LanguagesSection from "./LanguagesSection";
+import { ClipLoader } from "react-spinners";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ProfileForm({user}) {
+  const [loading, setLoading] = useState(true);
+  const [updating, setUpdating] = useState(false);
   const [nameEntry, setNameEntry] = useState("");
   const [emailEntry, setEmailEntry] = useState("");
   const [contactNoEntry, setContactNoEntry] = useState("");
@@ -31,63 +35,73 @@ export default function ProfileForm({user}) {
       setEducationEntry(education); setLanguagesEntry(languages); 
       setWorkExperienceEntry(workExperience); setInterestsEntry(interests); 
       setAdditionalInformationEntry(additionalInformation);
-    })
-  }, [user])
+    }).catch((err) => console.log(err)).finally(() => setLoading(false))
+  }, [user]);
 
   const update = async () => {
+    if (updating) return;
+    setUpdating(true);
     await axios.put("/api/profile", {
       name: nameEntry, email: emailEntry, contactNo: contactNoEntry,
       education: educationEntry, workExperience: workExperienceEntry,
       languages: languagesEntry, socialLinks: socialLinksEntry,
       additionalInformation: additionalInformationEntry,
       interests: interestsEntry, 
-    });
+    })
+    .then(() => toast.success("Profile updated successfully"))
+    .finally(() => setUpdating(false));
   }
 
-  return <>
-    <div className="flex flex-col gap-3">
-      <InputField title="Name">
-        <input 
-          defaultValue={nameEntry} 
-          onChange={e => setNameEntry(e.target.value)} 
+  return loading ?
+    <ClipLoader /> :
+    <>
+      <div className="flex flex-col gap-3">
+        <InputField title="Name">
+          <input 
+            defaultValue={nameEntry} 
+            onChange={e => setNameEntry(e.target.value)} 
+          />
+        </InputField>
+        <InputField title="Email">
+          <input 
+            defaultValue={emailEntry} 
+            onChange={e => setEmailEntry(e.target.value)}
+          />
+        </InputField>
+        <InputField title="Contact Number">
+          <input 
+            defaultValue={contactNoEntry} 
+            onChange={e => setContactNoEntry(e.target.value)}
+          />
+        </InputField>
+        <EducationSection 
+          value={educationEntry} setValue={setEducationEntry} 
         />
-      </InputField>
-      <InputField title="Email">
-        <input 
-          defaultValue={emailEntry} 
-          onChange={e => setEmailEntry(e.target.value)}
+        <WorkExperienceSection
+          value={workExperienceEntry} setValue={setWorkExperienceEntry}
         />
-      </InputField>
-      <InputField title="Contact Number">
-        <input 
-          defaultValue={contactNoEntry} 
-          onChange={e => setContactNoEntry(e.target.value)}
+        <LanguagesSection
+          value={languagesEntry} setValue={setLanguagesEntry}
         />
-      </InputField>
-      <EducationSection 
-        value={educationEntry} setValue={setEducationEntry} 
-      />
-      <WorkExperienceSection
-        value={workExperienceEntry} setValue={setWorkExperienceEntry}
-      />
-      <LanguagesSection
-        value={languagesEntry} setValue={setLanguagesEntry}
-      />
-      <MultiValueSection 
-        value={interestsEntry} setValue={setInterestsEntry} 
-        title={"Interests"} inputTitle={"Name"}
-      />
-      <MultiValueSection 
-        value={socialLinksEntry} setValue={setSocialLinksEntry} 
-        title={"Social Links"} inputTitle={"Link"}
-      />
-      <InputField title="Additional Information">
-        <textarea 
-          value={additionalInformationEntry} 
-          onChange={e => setAdditionalInformationEntry(e.target.value)}
+        <MultiValueSection 
+          value={interestsEntry} setValue={setInterestsEntry} 
+          title={"Interests"} inputTitle={"Name"}
         />
-      </InputField>
-      <button onClick={update}>Update Profile</button>
-    </div>
-  </>
+        <MultiValueSection 
+          value={socialLinksEntry} setValue={setSocialLinksEntry} 
+          title={"Social Links"} inputTitle={"Link"}
+        />
+        <InputField title="Additional Information">
+          <textarea 
+            value={additionalInformationEntry} 
+            onChange={e => setAdditionalInformationEntry(e.target.value)}
+          />
+        </InputField>
+        <Toaster />
+        <button onClick={update}>
+          Update Profile
+          { updating && <ClipLoader size={15} color="white" /> }
+        </button>
+      </div>
+    </>
 }
