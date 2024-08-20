@@ -10,7 +10,7 @@ export default async function Page() {
     {
       session ?
       <div className="flex flex-col gap-3">
-        <div>What would you link to do today?</div>
+        <div>What would you like to do today?</div>
         <div className="flex gap-1">
           <Link className="btn" href={"/profile"}>Update Profile</Link>
           <Link className="btn" href={`/chat/${session.user.id}`}>Start Chatting</Link>
