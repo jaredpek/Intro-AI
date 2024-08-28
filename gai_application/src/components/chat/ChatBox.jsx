@@ -11,12 +11,13 @@ export default function ChatBox() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    if (history.length && history[history.length - 1][0] == "human") {
+    if (history.length && history[0][0] == "human") {
       setLoading(true);
       setMessage("");
-      axios.post(`/api/chat`, {history, message})
+      const ordered = [...history]; ordered.reverse();
+      axios.post(`/api/chat`, {history: ordered, message})
         .then(({data: {response}}) => setHistory([
-          ...history, ["ai", response]
+         ["ai", response],  ...history, 
         ]))
         .finally(() => setLoading(false));
     }
@@ -27,23 +28,22 @@ export default function ChatBox() {
     e.stopPropagation();
     if (!message || loading) return;
     setHistory([
-      ...history, ["human", message],
+      ["human", message], ...history, 
     ]);
   }
 
   return <>
-    {
-      !!history.length && 
-      <div className="relative border w-full max-h-[550px] p-4 overflow-y-auto grid gap-3 rounded-lg">
-        {
-          history.map(([role, message], i) => <Message
-            key={i} role={role} message={message} 
-          />)
-        }
-        {loading && <Message role={"ai"} message={<PulseLoader size={7} />} />}
-      </div>
-    }
-    <form className="flex flex-col gap-3" onSubmit={send}>
+    <div className="h-full w-full py-4 overflow-y-auto flex flex-col-reverse gap-3 rounded-lg">
+      {loading && <Message role={"ai"} message={<PulseLoader size={7} color="gray" />} />}
+      {
+        history.length ?
+        history.map(([role, message], i) => <Message
+          key={i} role={role} message={message} 
+        />) :
+        <div className="w-full h-full select-none text-gray-400 flex items-center justify-center text-center text-wrap">Hello! I am Jared, send me a message to start chatting!</div>
+      }
+    </div>
+    <form className="flex flex-col gap-3 h-fit" onSubmit={send}>
       <input placeholder="Message..." value={message} onChange={e => setMessage(e.target.value)} />
       <button type="submit">Send Message</button>
     </form>
