@@ -1,6 +1,5 @@
 import { genAIEmbedding, genAIModel, genInstruction } from "@/lib/genAI";
 import { NextResponse } from "next/server";
-
 import { MongoDBAtlasVectorSearch } from "@langchain/mongodb";
 import MongoDbClient from "@/lib/mongo";
 

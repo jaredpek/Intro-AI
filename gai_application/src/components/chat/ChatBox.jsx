@@ -33,7 +33,7 @@ export default function ChatBox() {
   }
 
   return <>
-    <div className="h-full w-full py-4 overflow-y-auto flex flex-col-reverse gap-3 rounded-lg">
+    <div className="h-full w-full overflow-y-auto flex flex-col-reverse gap-3 rounded-lg">
       {loading && <Message role={"ai"} message={<PulseLoader size={7} color="gray" />} />}
       {
         history.length ?
@@ -43,6 +43,7 @@ export default function ChatBox() {
         <div className="w-full h-full select-none text-gray-400 flex items-center justify-center text-center text-wrap">Hello! I am Jared, send me a message to start chatting!</div>
       }
     </div>
+    <hr />
     <form className="flex flex-col gap-3 h-fit" onSubmit={send}>
       <input placeholder="Message..." value={message} onChange={e => setMessage(e.target.value)} />
       <button type="submit">Send Message</button>
