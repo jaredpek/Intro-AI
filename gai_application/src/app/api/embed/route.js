@@ -5,9 +5,21 @@ import { MarkdownTextSplitter } from "langchain/text_splitter";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import MongoDbClient from "@/lib/mongo.js";
 
+// Index Configuration
+const indexConfig = {
+  "fields": [
+    {
+      "type": "vector",
+      "path": "embedding",
+      "numDimensions": 768,
+      "similarity": "euclidean"
+    }
+  ]
+}
+
 export const POST = async (req) => {
   try {
-    // initialise profile and text splitter
+    // initialise profile and split loaded text into chunks
     const loader = new TextLoader("src/app/api/embed/profile.txt");
     const profile = await loader.load();
     const splitter = new MarkdownTextSplitter({
@@ -15,11 +27,11 @@ export const POST = async (req) => {
     })
     const chunks = await splitter.splitDocuments(profile);
     
-    // reset vector embedding database
+    // remove the old collection
     const database = MongoDbClient.db(process.env.MONGODB_DB);
     database.dropCollection(process.env.MONGODB_COLLECTION);
 
-    // initialise vector search index and add documents
+    // generate vector embeddings on provided documents and save to collection
     const vectorStore = new MongoDBAtlasVectorSearch(genAIEmbedding, {
       collection: database.collection(process.env.MONGODB_COLLECTION),
       indexName: "default",
@@ -27,6 +39,7 @@ export const POST = async (req) => {
       embeddingKey: "embedding",
     });
     const result = await vectorStore.addDocuments(chunks);
+
     const response = {
       chunks: chunks.length,
       documents: result.length,
