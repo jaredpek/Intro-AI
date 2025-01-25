@@ -10,64 +10,82 @@
   a. GitHub: https://github.com/jaredpek
 
 ## Work Experience 1
-- Full-Stack Software Engineer Intern at Hangr Solutions (Mar 2024 - Aug 2024)
+- Full-Stack Software Engineer Intern at SAP (Jan 2025 - Current)
+  -	Just onboarded to SAP and excited to learn about enterprise software engineering
+
+## Work Experience 2
+- Full-Stack Software Engineer Intern at Hangr Solutions (Mar 2024 - Jan 2025)
   -	Spearheaded the end-to-end design and implementation of a multi-layered AWS cloud and software architecture that boosts site availability and reliability by over 90% while lowering deployment costs by over 70%
     - Leveraged various AWS services such as:
       - Application load balancers and auto scaling groups for EC2 instances launched via a launch template for high reliability and scalability
       - Cloudfront CDN for high international availability
       - S3 blob storage for images and 3D models
       - RDS PostgreSQL for relational database service
-      - EC2 Spot Fleet for greater cost effectiveness for specific and less frequently used features of the application
-
-## Work Experience 1
-- Full-Stack Software Engineer Intern at Hangr Solutions (Mar 2024 - Aug 2024)
-  -	Spearheaded the end-to-end design and implementation of a multi-layered AWS architecture that boosts site availability and reliability by over 90% while lowering deployment costs by over 70%
-  - Led a team of 4 developers in developing a full-stack content-management application using agile methodologies
-  -	Managed the end-to-end development and deployment of a REST API using Python's Django REST Framework that handles over 25 CRUD operations with a PostgreSQL database
-  -	Leveraged JavaScript's React.js in developing a dynamic front-end with over 30 reusable components, boosting user engagement by over 20% while reducing development time by over 60%
+      - Route53 and AWS Certificate Manager for our domain name and SSL configurations
+      - AWS Personalise for our product recommendation model
+      - Lambda functions for data processing, aggregating and cleaning, as well as for job scheduling
 
 ## Work Experience 2
+- Full-Stack Software Engineer Intern at Hangr Solutions (Mar 2024 - Jan 2025)
+  -	Spearheaded the end-to-end design and implementation of a multi-layered AWS architecture that boosts site availability and reliability by over 90% while lowering deployment costs by over 70%
+  - Leveraged a producer-consumer architecture to decouple all our micro-services, boosting maintainability and scalability by over 80%
+  - Led a team of 4 developers in developing a full-stack content-management application using agile methodologies
+  -	Managed the end-to-end development and deployment of a REST API using Python's Django REST Framework that handles over 25 CRUD operations with a PostgreSQL database
+  -	Leveraged JavaScript's React.js in developing a dynamic front-end with over 50 reusable components, boosting user engagement by over 30% while reducing development time by over 60%
+
+## Work Experience 3
 - Back-End Software Engineer Intern at JTC Corporation (May 2024 - Aug 2024)
   -	Developed a REST API leveraging Node.js' Hapi.js for identity and access management that conducts over 30 remote-procedure calls to a RedHat Identity Management LDAP server
   -	Optimized and reduced overall API response times by over 70% by leveraging batched remote-procedure calls
-  -	Deployed the REST API as a containerized application with Docker on an a virtual machine on the Azure cloud platform, boosting deployment speed and scalability by over 100%
+  -	Deployed the REST API as a containerized application with Docker via a virtual machine on the Azure cloud platform, boosting deployment speed and scalability by over 100%
   - Developed a dynamic front-end using React.js with over 20 reusable components, boosting development speed by over 40%
 
-## Work Experience 3
+## Work Experience 4
 - Software Engineering and Integration Intern at Hitachi Vantara (Apr 2022 - Jul 2022)
   -	Deployed over 5 applications onto an air-gapped and fully isolated RedHat environment, in collaboration with 12 developers across 3 countries
   -	Communicated client requirements to the development team, and facilitated product usage training for over 50 end users
   - Developed over 5 prototype ETL pipelines and integrated python scripts to automate data cleaning, data transformation and data management processes
 
 ## Personal Project 1
-- Full-Stack Software Engineer for MarketIO (https://market-io.vercel.app/) (Jun 2023 - Jul 2023)
+- Generateive AI and Software Engineer for IntroAI (Aug 2024 - Oct 2024)
+  -	Developed an AI chatbot that leverages retrieval-augmented-generation to take on my identity, allowing others to chat with a virtual version of myself
+  - Leveraged LangChain to integrate various services like the Gemini LLM and the MongoDB vector search in my customised retrieval-augmented-generation pipeline, reducing oveall development time by over 60%
+  - Integrated MongoDB's noSQL database and vector search to conduct semantic search on chunked data, reducing processing times by 30%
+
+## Personal Project 2
+- Full-Stack Software Engineer for MarketIO (Jun 2023 - Jul 2023)
   -	Developed an e-commerce product comparison and analysis platform that aggregates over 150 products on a single page, reducing total search time by over 70%
   -	Implemented 5 web scrapers to scrape real-time product data from 5 different e-commerce platforms with an efficient scraping time of less than 1 second each
   -	Leveraged the Django REST framework in Python to implement a REST API integrating 5 web scrapers that efficiently handles over 10 CRUD operations with a PostgreSQL database
 
-## Personal Project 2
+## Personal Project 3
 - Full-Stack Software Engineer at NTU Open-Source Society (Feb 2023 - May 2023)
   -	Managed a team of 7 in the end-to-end development of a stock brokerage platform using Agile methodologies
   -	Implemented a REST API using the Django REST Framework that efficiently handles over 15 CRUD operations with a PostgreSQL database
 
-## Personal Project 3
+## Personal Project 4
 - Back-End and Generative AI Engineer for WanderWise (Apr 2024 – Apr 2024)
   - Leveraged the Gemini LLM API to generate a full travel itinerary based on input location and number of days travelling, reducing the total time required to plan holidays by over 80%
   - Developed a REST API to dynamically generate a JSON itinerary for popular tourist attractions
 
-## Personal Project 4
+## Personal Project 5
 - Back-End Engineer for Colour Copy Rider (Feb 2024 – Feb 2024)
   - Leveraged ML5.js’ image classification model to conduct real-time object detection and integrated it to a React.js front-end, achieving an efficient detection time of less than 1 second with an 80% success rate
   - Integrated Perplexity’s Mistral 7B Instruct LLM to an Express.js API that generates a 500-word article based on carefully engineered prompts, reducing the time required to write attention-catching articles by over 70%
 
-## Personal Project 5
+## Personal Project 6
 - Machine Learning Engineer for Stock Signal Classification (Mar 2023 – Apr 2023)
   - Developed a stock signal classification model using SciKit-Learn’s Logistic Regression model with a 95% accuracy in generating a buy or sell signal based on technical indicators
   - Built a single-page web application using StreamLit that takes input from 4 technical indicators and outputs the model’s prediction within 2 seconds, reducing the time required for technical analysis by over 50%
 
 ## Education and Qualifications 	
 - Bachelor of Engineering in Computer Science with 2nd Major in Business at Nanyang Technological University (Expected Graduation in May 2026)
-  -	Coursework that I aced: Data Structures & Algorithms, Object-Oriented Design and Programming, Software Engineering, Data Science and Machine Learning
+  -	Coursework that I aced
+    - Data Structures & Algorithms and Advanced Data Structures & Algorithms
+    - Object-Oriented Design and Programming
+    - Software Engineering and Advanced Software Engineering
+    - Data Science and Machine Learning
+    - Mobile and Distributed Computing
 
 ## Leadership	
 - Full-Stack Technical Lead at NTU Google Developer Student Club (Sep 2023 - Aug 2024)
@@ -79,11 +97,11 @@
 2. Frameworks: Node.js, Hapi.js, Express.js, Django, React.js, Next.js, Docker, ML5.js
 3. Cloud: AWS, Azure, GCP, DigitalOcean
 4. Databases: PostgreSQL, MySQL, MongoDB, Redis, Firestore
-5. Interests: Software Engineering, Cloud Computing, Generative AI and Solutions Architect
+5. Interests: Software Engineering, Generative AI, Solutions Architect, Cloud Computing
 
 ## Hobbies
-1. Calisthentics and Bodyweight exercises
-2. Bouldering and rock climbing
+1. Calisthentics
+2. Bouldering
 3. Cycling
-4. Gym
-5. Aeromodelling and building stuff
+4. Gym and weighted calisthentics
+5. Building things in general
