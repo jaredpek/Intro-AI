@@ -53,8 +53,8 @@
   - Back-End Software Engineer Intern at JTC Corporation (May 2024 - Aug 2024)
     -	Developed a REST API leveraging Node.js' Hapi.js for identity and access management that conducts over 30 remote-procedure calls to a RedHat Identity Management LDAP server
     -	Optimized and reduced overall API response times by over 70% by leveraging batched remote-procedure calls
-    -	Deployed the REST API as a containerized application with Docker via a virtual machine on the Azure cloud platform, boosting deployment speed and scalability by over 100%
-    - Developed a dynamic front-end using React.js with over 20 reusable components, boosting development speed by over 40%
+    -	Deployed the REST API as a containerized application with Docker, via a virtual machine on the Azure cloud platform, which boosted deployment speed and scalability by over 100%
+    - Developed a dynamic front-end for user management and authentication using React.js with over 20 reusable components, boosting development speed by over 40%
 
 ### Work Experience 4
   - Software Engineering and Integration Intern at Hitachi Vantara (Apr 2022 - Jul 2022)

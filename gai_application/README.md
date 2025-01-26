@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Description
 
-## Getting Started
+This is a web application chat-bot that is taking on my identity
 
-First, run the development server:
+# Accessing the Bot
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. The bot can be accessed via ```https://intro-ai-jaredpek.vercel.app``` [here](https://intro-ai-jaredpek.vercel.app)
+   - This is the chat page for my personal chat-bot
+      - It leverages retrieval augmented generation to embed relevant information to any prompt that is received
+      - The architecture diagram for the customised retrieval augmented generation pipeline can be found inside the ```/diagram``` directory [here](https://github.com/jaredpek/Intro-AI/blob/main/gai_application/diagram/ArchitectureDiagram.png)
+   - Feel free to ask any questions regarding my profile!
+2. The source code for this bot and implementation details can be found inside the ```/src``` directory [here](https://github.com/jaredpek/Intro-AI/blob/main/gai_application/src)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Framework
+   - Next.js
+      - Easy and quickly develop both front and back-ends of the application
+      - Allows server-side operations and rendering
+2. Database
+   - MongoDB noSQL database
+   - MongoDB vector search index
+3. GAI Model
+   - Gemini 1.5 Flash (API)
+5. Deployment
+   - Vercel (AWS)
+      - Easy and convenient deployment
+         - In-built CI/CD pipeline
+         - Free domain name + SSL certification
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Approach
 
-## Learn More
+## Pre-Processing
+1. Prepare my profile in markdown format in a ```.txt``` file
+2. Use langchain's markdown text splitter to split my profile text file into chunks
+   - Markdown ensures that chunks are labelled with a specific "category"
+   - Preserves the content within each section and prevents content from being mixed with other sections during semantic and vector search
+3. Create vector embeddings for each chunk using Google's generative AI text embedding model and save them onto a MongoDB collection
+4. Create a vector search index based on the vector embeddings that were saved to the collecion
+   - Uses euclidean distance to determine the similarity between the prompt and the chunks
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Generation and Operation
+1. Users send a message to the bot, which makes an API request to the ```/api/chat``` endpoint
+2. The chat is first initialised with an initial system prompt
+   - Instructions on how the model should respond and the role that it should undertake
+   - Vector search is conducted for prompt on the relevant chunks via the MongoDB vector search index and langchain, which allows us to obtain relevant chunks of information from the database
+3. Send the initial prompt, together with the user chat history and the newly received message to the Gemini API, and generate a response from the LLM
+4. Send the response back to the user
