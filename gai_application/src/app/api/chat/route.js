@@ -7,16 +7,14 @@ export const POST = async (req) => {
   // initialise vector search index retriever
   const vectorStore = new MongoDBAtlasVectorSearch(genAIEmbedding, {
     collection: MongoDbClient.db(process.env.MONGODB_DB).collection(process.env.MONGODB_COLLECTION),
-    indexName: process.env.MONGODB_VECTOR,
-    textKey: "text",
-    embeddingKey: "embedding",
+    indexName: process.env.MONGODB_VECTOR, textKey: "text", embeddingKey: "embedding", 
   });
-  const retriever = vectorStore.asRetriever();
+  const retriever = vectorStore.asRetriever(4);
 
   // generate response based on provided message and chat context
   try {
     const { history, message } = await req.json();
-    const context = await retriever.invoke(message);
+    const context = await retriever.invoke(message, {});
     const instruction = `
       ${genInstruction}
       Here are the provided contexts:
@@ -28,7 +26,7 @@ export const POST = async (req) => {
       ["human", message],
     ]);
     const response = (await chat).content;
-    return NextResponse.json({ response }, { status: 200 });
+    return NextResponse.json({ response, context }, { status: 200 });
   } catch (error) {
     console.log(error);
     return NextResponse.json(
