@@ -78,7 +78,7 @@
     - Leveraged LangChain to integrate various services like the Gemini LLM and the MongoDB atlas vector search index in my customised retrieval-augmented generation pipeline, reducing overall development time by over 60% while boosting scalability by over 80%
     - Integrated MongoDB's noSQL database and vector search to conduct semantic search on chunked data, reducing processing times by 30% and reducing token usage by over 70%
     - GitHub URL: https://github.com/jaredpek/Intro-AI
-    - Application URL: https://intro-ai-jaredpek.vercel.app
+    - Application URL: https://jaredpek.vercel.app
 
 ## Project 2
   - Generative AI and Full-Stack Software Engineer for Kotaemon (Sep 2024 - Nov 2024)

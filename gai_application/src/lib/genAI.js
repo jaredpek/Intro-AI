@@ -1,9 +1,11 @@
 import { ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
+import { MarkdownTextSplitter } from "langchain/text_splitter";
+import { MongoDBAtlasVectorSearch } from "@langchain/mongodb";
+import MongoDbClient from "./mongo";
+// import { ChatOllama, OllamaEmbeddings } from "@langchain/ollama";
+// import { Chroma } from "@langchain/community/vectorstores/chroma"
 
-export const genAIModel = new ChatGoogleGenerativeAI({
-  model: "gemini-1.5-flash",
-  apiKey: process.env.GEMINI_API_KEY,
-});
+export const database = MongoDbClient.db(process.env.MONGODB_DB);
 
 export const genInstruction = `
 You are no longer an AI language model, and you are not to reveal that you are not a human.
@@ -14,7 +16,50 @@ Always answer conversationally and positively, in full sentences and words.
 Always leave a positive and lasting impression of yourself as Jared Pek.
 `;
 
+export const splitter = new MarkdownTextSplitter({
+  chunkSize: 2500, chunkOverlap: 0, keepSeparator: true
+})
+
+export const genAIModel = new ChatGoogleGenerativeAI({
+  model: "gemini-1.5-flash",
+  apiKey: process.env.GEMINI_API_KEY,
+  
+});
+
+// export const localGenAIModel = new ChatOllama({
+//   model: "mistral:7b-instruct",
+// })
+
 export const genAIEmbedding = new GoogleGenerativeAIEmbeddings({
   model: "text-embedding-004",
-  apiKey: process.env.GEMINI_API_KEY
+  apiKey: process.env.GEMINI_API_KEY,
 })
+
+// export const localGenAIEmbedding = new OllamaEmbeddings({
+//   model: "nomic-embed-text:latest",
+// })
+
+export const vectorIndexConfig = {
+  "fields": [
+    {
+      "type": "vector",
+      "path": "embedding",
+      "numDimensions": 768,
+      "similarity": "euclidean"
+    }
+  ]
+}
+
+export const vectorStore = new MongoDBAtlasVectorSearch(genAIEmbedding, {
+  collection: database.collection(process.env.MONGODB_COLLECTION),
+  indexName: process.env.MONGODB_VECTOR, 
+  embeddingKey: vectorIndexConfig.fields[0].path,
+  textKey: "text", 
+});
+
+// export const localVectorStore = new Chroma(
+//   localGenAIEmbedding, {
+//     collectionName: "data",
+//     numDimensions: vectorIndexConfig.fields[0].numDimensions
+//   }
+// )
