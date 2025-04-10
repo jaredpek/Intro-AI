@@ -38,7 +38,9 @@
 
 ## Work 1
   - Full-Stack Software Engineer Intern at SAP (Jan 2025 - Current)
-    -	Just onboarded to SAP and looking forward to learning and contributing to enterprise software architecture designs and software engineering projects in SAP's Joule Framework
+    - Managed the investigation and resolution of over 5 high-priority production bugs across various high-transaction Java SpringBoot microservices, reducing the quantity of false positive errors by over 90% and boosting developer productivity by over 40%
+    - Optimized the querying and updating of data on a high-volume relational database by leveraging indexing, caching and partitioning, reducing overall load times by over 70%
+    - Spearheaded the integration of a new API to our analytics pipeline, implementing various data adapters via Python dataclasses and OOP
 
 ## Work 2
   - Full-Stack Software Engineer Intern at Hangr Solutions (Mar 2024 - Jan 2025)
