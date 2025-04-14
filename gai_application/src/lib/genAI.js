@@ -23,7 +23,6 @@ export const splitter = new MarkdownTextSplitter({
 export const genAIModel = new ChatGoogleGenerativeAI({
   model: "gemini-2.0-flash",
   apiKey: process.env.GEMINI_API_KEY,
-  
 });
 
 // export const localGenAIModel = new ChatOllama({
@@ -40,20 +39,22 @@ export const genAIEmbedding = new GoogleGenerativeAIEmbeddings({
 // })
 
 export const vectorIndexConfig = {
-  "fields": [
-    {
+  name: process.env.MONGODB_VECTOR,
+  definition: {
+    "fields": [{
       "type": "vector",
       "path": "embedding",
       "numDimensions": 768,
       "similarity": "euclidean"
-    }
-  ]
+    }],
+  },
+  type: "vectorSearch",
 }
 
 export const vectorStore = new MongoDBAtlasVectorSearch(genAIEmbedding, {
   collection: database.collection(process.env.MONGODB_COLLECTION),
   indexName: process.env.MONGODB_VECTOR, 
-  embeddingKey: vectorIndexConfig.fields[0].path,
+  embeddingKey: vectorIndexConfig.definition.fields[0].path,
   textKey: "text", 
 });
 

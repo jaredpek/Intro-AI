@@ -22,8 +22,11 @@
 
 ## Interests
   - Generative AI
-  - Full-Stack and Back-End Software Engineering
-  - Solutions Architect
+  - Agentic AI
+  - AI Automation
+  - Full-Stack Software Engineering
+  - Back-End Software Engineering
+  - Solutions Architecture
   - Cloud Infrastructure
   - Cloud Computing
 
@@ -38,45 +41,46 @@
 
 ## Work 1
   - Full-Stack Software Engineer Intern at SAP (Jan 2025 - Current)
-    - Managed the investigation and resolution of over 5 high-priority production bugs across various high-transaction Java SpringBoot microservices, reducing the quantity of false positive errors by over 90% and boosting developer productivity by over 40%
+    - Investigated and resolved of over 10 high-priority production bugs across various high-transaction Java SpringBoot microservices, reducing the quantity of false positive errors by over 90% while boosting engineering productivity by over 40%
     - Optimized the querying and updating of data on a high-volume relational database by leveraging indexing, caching and partitioning, reducing overall load times by over 70%
-    - Spearheaded the integration of a new API to our analytics pipeline, implementing various data adapters via Python dataclasses and OOP
+    - Spearheaded the integration of a new API to our analytics pipeline, implementing various data adapters via Python dataclasses, boosting modularity by over 50% by following all OOP principles
+    - Conducted load testing on multiple core microservices across
 
 ## Work 2
-  - Full-Stack Software Engineer Intern at Hangr Solutions (Mar 2024 - Jan 2025)
-    -	Spearheaded the end-to-end design and implementation of a multi-layered AWS cloud and software architecture that boosts site availability and reliability by over 90% while lowering deployment costs by over 70%
-      - Leveraged various AWS services such as
+  - Full-Stack Software Engineer (Part-Time) at Hangr Solutions (Mar 2024 - Current)
+    - Spearheaded the end-to-end design and implementation of a multi-layered AWS cloud and software architecture that boosts site availability and reliability by over 90% while lowering deployment costs by over 70%
+      - Leveraged various AWS cloud services such as
         - Application load balancers and auto scaling groups for EC2 instances for high reliability and scalability
-        - Amplify for easy deployment with an integrated CI/CD pipeline
+        - Amplify for easy deployment of our front end with an integrated CI/CD pipeline
         - Cloudfront CDN for high international availability
-        - S3 blob storage for images and 3D models
-        - RDS PostgreSQL for relational database service
+        - S3 blob storage for images, videos and 3D models
+        - RDS PostgreSQL for the relational database service
         - Route53 and the Certificate Manager for our domain name and SSL configurations
-        - Lambda functions for data processing and aggregation
-        - ze for our product recommendation model
-        - Kinesis for real-time data streaming
-    -	Spearheaded the end-to-end design and implementation of a multi-layered AWS architecture that boosts site availability and reliability by over 90% while lowering deployment costs by over 70%
-    - Leveraged a producer-consumer architecture to decouple all our microservices, boosting maintainability and scalability by over 80%
-    - Led a team of 4 developers in developing a full-stack content-management application using agile methodologies
-    -	Managed the end-to-end development and deployment of a REST API using Python's Django REST Framework that handles over 25 CRUD operations with a PostgreSQL database
-    -	Leveraged JavaScript's React.js in developing a dynamic front-end with over 50 reusable components, boosting user engagement by over 30% while reducing development time by over 60%
+        - Lambda functions for dynamic data processing and aggregation
+        - Personalize for our e-commerce product recommendation service
+	- CloudWatch for monitoring and log streaming for core deployment components
+	- Standard AWS services like VPC, Internet and API Gateways, Routing Tables and Elastic IPs
+  - Led a team of 4 developers in developing a full-stack content-management application using agile methodologies
+  - Managed the end-to-end development and deployment of a REST API using Python's Django REST Framework that handles over 25 CRUD operations with a PostgreSQL database
+  - Leveraged JavaScript's React.js in developing a dynamic front-end with over 50 reusable components, boosting user engagement by over 30% while reducing development time by over 60%
+  - Oversaw the integration of our SaaS product with shopify, ensuring seamless data transformation between shopify and our platform
 
 ## Work 3
   - Software Engineer Intern at JTC Corporation (May 2024 - Aug 2024)
-    -	Developed a REST API leveraging Node.js' Hapi.js for identity and access management that conducts over 30 remote-procedure calls to a RedHat Identity Management LDAP server
-    -	Optimized and reduced overall API response times by over 70% by leveraging batched remote-procedure calls
-    -	Deployed the REST API as a containerized application with Docker, via a virtual machine on the Azure cloud platform, which boosted deployment speed and scalability by over 100%
+    - Developed a REST API leveraging Node.js' Hapi.js for identity and access management that conducts over 40 remote-procedure calls to a RedHat Identity Management LDAP server
+    - Optimized and reduced overall API response and operation times by over 70% by leveraging batched remote-procedure calls
+    - Deployed the REST API as a containerized application with Docker, via a virtual machine on the Azure cloud platform, which boosted deployment speed and scalability by over 100%
     - Developed a dynamic front-end for user management and authentication using React.js with over 20 reusable components, boosting development speed by over 40%
 
 ## Work 4
   - Software Engineer and Integration Intern at Hitachi Vantara (Apr 2022 - Jul 2022)
-    -	Deployed over 5 applications onto an air-gapped and fully isolated RedHat environment, in collaboration with 12 developers across 3 countries
-    -	Communicated client requirements to the development team, and facilitated product usage training for over 50 end users
+    - Deployed over 5 applications onto an air-gapped and fully isolated RedHat environment, in collaboration with 12 developers across 3 countries
+    - Communicated client requirements to the development team, and facilitated product usage training for over 50 end users
     - Developed over 5 prototype ETL pipelines and integrated python scripts to automate data cleaning, data transformation and data management processes
 
 ## Project 1
   - Generative AI and Full-Stack Software Engineer for IntroAI (Aug 2024 - Oct 2024)
-    -	Developed an AI chatbot that leverages retrieval-augmented generation to take on my identity, allowing others to chat with a virtual version of myself
+    - Developed an AI chatbot that leverages retrieval-augmented generation to take on my identity, allowing others to chat with a virtual version of myself
     - Leveraged LangChain to integrate various services like the Gemini LLM and the MongoDB atlas vector search index in my customised retrieval-augmented generation pipeline, reducing overall development time by over 60% while boosting scalability by over 80%
     - Integrated MongoDB's noSQL database and vector search to conduct semantic search on chunked data, reducing processing times by 30% and reducing token usage by over 70%
     - GitHub URL: https://github.com/jaredpek/Intro-AI
@@ -84,22 +88,22 @@
 
 ## Project 2
   - Generative AI and Full-Stack Software Engineer for Kotaemon (Sep 2024 - Nov 2024)
-    -	Contributed to an open-source application that enables users to customise their own retrieval-augmented generation pipelines and integrate multiple LLMs and embedding models of their choice
+    - Contributed to an open-source application that enables users to customise their own retrieval-augmented generation pipelines and integrate multiple LLMs and embedding models of their choice
     - Designed and implemented the integration of Gemini LLMs and Gemini embedding models to the application's architecture using LangChain, enabling the usage of Gemini models for over 10000 users
     - GitHub URL: https://github.com/jaredpek/Kotaemon
 
 ## Project 3
   - Full-Stack Software Engineer for MarketIO (Jun 2023 - Jul 2023)
-    -	Developed an e-commerce product comparison and analysis platform that aggregates over 150 products on a single page, reducing total search time by over 70%
-    -	Implemented 5 web scrapers to scrape real-time product data from 5 different e-commerce platforms with an efficient scraping time of less than 1 second each
-    -	Leveraged the Django REST framework in Python to implement a REST API integrating 5 web scrapers that efficiently handles over 10 CRUD operations with a PostgreSQL database
+    - Developed an e-commerce product comparison and analysis platform that aggregates over 150 products on a single page, reducing total search time by over 70%
+    - Implemented 5 web scrapers to scrape real-time product data from 5 different e-commerce platforms with an efficient scraping time of less than 1 second each
+    - Leveraged the Django REST framework in Python to implement a REST API integrating 5 web scrapers that efficiently handles over 10 CRUD operations with a PostgreSQL database
     - Developed a dynamic front-end using Next.js with over 30 reusable components, boosting development speed by over 40%
     - GitHub URL: https://github.com/jaredpek/Market-IO
 
 ## Project 4
   - Full-Stack Software Engineer at NTU Open-Source Society (Feb 2023 - May 2023)
-    -	Managed a team of 7 developers in the end-to-end development of a stock brokerage platform using Agile methodologies
-    -	Implemented a REST API using the Django REST Framework that efficiently handles over 15 CRUD operations with a PostgreSQL database
+    - Managed a team of 7 developers in the end-to-end development of a stock brokerage platform using Agile methodologies
+    - Implemented a REST API using the Django REST Framework that efficiently handles over 15 CRUD operations with a PostgreSQL database
     - Developed a dynamic front-end using Next.js with over 25 reusable components, boosting development speed by over 50%
 
 ## Project 5
@@ -120,7 +124,7 @@
 
 ## Education and Qualifications 	
   - Bachelor of Engineering in Computer Science with 2nd Major in Business at Nanyang Technological University (Expected Graduation in May 2026)
-    -	Coursework that I have aced
+    - Coursework that I have aced
       - Data Structures & Algorithms and Advanced Data Structures & Algorithms
       - Object-Oriented Design and Programming
       - Software Engineering and Advanced Software Engineering
@@ -130,4 +134,4 @@
 
 ## Leadership	
   - Full-Stack Technical Lead at NTU Google Developer Student Club (Sep 2023 - Aug 2024)
-    -	Led multiple projects and workshops for a developer club associated with Google that comprised over 200 members
+    - Led multiple projects and workshops for a developer club associated with Google that comprised over 200 members

@@ -1,5 +1,5 @@
 import { 
-  database, splitter, vectorStore ,
+  database, splitter, vectorIndexConfig, vectorStore,
   // localVectorStore, 
 } from "@/lib/genAI";
 import { NextResponse } from "next/server";
@@ -8,25 +8,33 @@ import { TextLoader } from "langchain/document_loaders/fs/text";
 export const POST = async (req) => {
   try {
     // initialise profile and split loaded text into chunks
-    const loader = new TextLoader("src/app/api/embed/profile.txt");
-    const profile = await loader.load();
-    const chunks = splitter.splitDocuments(profile);
-    
-    // remove the old collection
-    await database.dropCollection(process.env.MONGODB_COLLECTION);
+    const data = await req.formData().catch(() => new FormData());
+    const file = data.get("profile") || "src/app/api/embed/profile.txt";
+    const mode = data.get("mode") || "default";
 
-    // generate vector embeddings on provided documents and save to collection
+    const loader = new TextLoader(file);
+    const profile = await loader.load();
+    const chunks = await splitter.splitDocuments(profile);
+    
+    // remove or delete all data from the collection
+    (mode == "delete") ?
+      await database.dropCollection(process.env.MONGODB_COLLECTION) :
+      await database.collection(process.env.MONGODB_COLLECTION).deleteMany();
+
+    // generate vector embeddings on provided documents and save to the collection
     // const result = localVectorStore.addDocuments(await chunks);
-    const result = vectorStore.addDocuments(await chunks);
+    const result = await vectorStore.addDocuments(chunks);
+
+    // update or create vector search index with new chunks
+    const { name, definition } = vectorIndexConfig; (mode == "delete") ?
+      await database.collection(process.env.MONGODB_COLLECTION).createSearchIndex(vectorIndexConfig) :
+      await database.collection(process.env.MONGODB_COLLECTION).updateSearchIndex(name, definition);
 
     const response = {
-      chunks: {
-        data: await chunks,
-        count: (await chunks).length,
-      },
-      documents: {
-        count: (await result).length,
-      },
+      file: (!!file) ? "uploaded" : "default",
+      mode: (mode == "delete") ? "delete" : "update",
+      chunks: { data: chunks, count: chunks.length },
+      documents: { count: result.length },
     };
     return NextResponse.json({ response }, { status: 200 });
   } catch (error) {
