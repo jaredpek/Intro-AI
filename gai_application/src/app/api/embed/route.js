@@ -9,7 +9,7 @@ export const POST = async (req) => {
   try {
     // initialise profile and split loaded text into chunks
     const data = await req.formData().catch(() => new FormData());
-    const file = data.get("profile") || "src/app/api/embed/profile.txt";
+    const file = data.get("file") || "src/app/api/embed/profile.txt";
     const mode = data.get("mode") || "default";
 
     const loader = new TextLoader(file);
@@ -36,12 +36,14 @@ export const POST = async (req) => {
       chunks: { data: chunks, count: chunks.length },
       documents: { count: result.length },
     };
+    console.info(`[${new Date()}] Vector embedding generated successfully`);
     return NextResponse.json({ response }, { status: 200 });
   } catch (error) {
-    console.log(error);
-    return NextResponse.json(
-      { error: "Error generating vector embeddings from profile" },
-      { status: 401 },
+    console.error(`[${new Date()}] Error generating vector embeddings from profile due to: ${error}`);
+    return NextResponse.json({ 
+        error: "Error generating vector embeddings from profile",
+        trace: String(error),
+      }, { status: 401 },
     );
   }
 };

@@ -11,12 +11,12 @@
     - GitHub: https://github.com/jaredpek
 
 ## Skills
-  - Coding: JavaScript, TypeScript, Python, SQL, Java, C++, Git, HTML, CSS
-  - Software Engineering: Node.js, Hapi.js, Express.js, Django, SpringBoot, React.js, Next.js, Docker
+  - Coding: Java, JavaScript, TypeScript, Python, SQL, Java, C++, Git, HTML, CSS
+  - Software Engineering: Java SpringBoot, Node.js, Hapi.js, Express.js, Django, SpringBoot, React.js, Next.js, Docker
   - Generative AI: Langchain, OpenAI, Gemini, Ollama, Retrieval-Augmented Generation
   - Machine Learning: ML5.js, Scikit-learn, Tensorflow
   - Cloud: AWS, Azure, GCP, DigitalOcean, Vercel
-  - SQL Databases: PostgreSQL, MySQL
+  - SQL Databases: PostgreSQL, MySQL, SAP HanaDB
   - NoSQL Databases: MongoDB, Redis, Firestore
   - Vector Databases: ChromaDB, MongoDB Atlas Vector Search
 
@@ -40,15 +40,17 @@
   - Building things in general
 
 ## Work 1
-  - Full-Stack Software Engineer Intern at SAP (Jan 2025 - Current)
-    - Investigated and resolved of over 10 high-priority production bugs across various high-transaction Java SpringBoot microservices, reducing the quantity of false positive errors by over 90% while boosting engineering productivity by over 40%
-    - Optimized the querying and updating of data on a high-volume relational database by leveraging indexing, caching and partitioning, reducing overall load times by over 70%
+  - Full-Stack Software Engineer Intern at SAP (Jan 2025 - Jun 2025)
+    - Spearheaded the design and implementation of a new analytics data model in a distributed environment that leverages online analytical processing, reducing overall query load times by over 60%
+    - Optimized the querying and updating of data by leveraging indexing, caching and partitioning on a high-traffic relational database, reducing load times by over 70%
+    - Led the design and implementation of 8 new analytics metrics across various high-volume Java SpringBoot microservices
+    - Managed the investigation and resolution of over 10 high-priority production bugs, reducing the quantity of false positive errors by over 90% while boosting engineering productivity by over 40% and increasing user engagement by over 50%
     - Spearheaded the integration of a new API to our analytics pipeline, implementing various data adapters via Python dataclasses, boosting modularity by over 50% by following all OOP principles
-    - Conducted load testing on multiple core microservices across
+    - Conducted load testing on multiple core microservices across using locust, identifying over 5 potential bottlenecks within the microservices architecture which subsequently resulted in a 40% reduction in overall processing times when the bottlenecks were resolved
 
 ## Work 2
-  - Full-Stack Software Engineer (Part-Time) at Hangr Solutions (Mar 2024 - Current)
-    - Spearheaded the end-to-end design and implementation of a multi-layered AWS cloud and software architecture that boosts site availability and reliability by over 90% while lowering deployment costs by over 70%
+  - Full-Stack Software Engineer (Part-Time) at Hangr Solutions (Mar 2024 - Jun 2025)
+    - Spearheaded the end-to-end design and implementation of a multi-layered AWS cloud and software architecture that boosts content availability by over 60% while lowering deployment costs by over 70%
       - Leveraged various AWS cloud services such as
         - Application load balancers and auto scaling groups for EC2 instances for high reliability and scalability
         - Amplify for easy deployment of our front end with an integrated CI/CD pipeline
@@ -63,7 +65,7 @@
   - Led a team of 4 developers in developing a full-stack content-management application using agile methodologies
   - Managed the end-to-end development and deployment of a REST API using Python's Django REST Framework that handles over 25 CRUD operations with a PostgreSQL database
   - Leveraged JavaScript's React.js in developing a dynamic front-end with over 50 reusable components, boosting user engagement by over 30% while reducing development time by over 60%
-  - Oversaw the integration of our SaaS product with shopify, ensuring seamless data transformation between shopify and our platform
+  - Oversaw the integration of our SaaS product with shopify, ensuring seamless data transformation and synchronisation between shopify and our platform
 
 ## Work 3
   - Software Engineer Intern at JTC Corporation (May 2024 - Aug 2024)
@@ -79,7 +81,7 @@
     - Developed over 5 prototype ETL pipelines and integrated python scripts to automate data cleaning, data transformation and data management processes
 
 ## Project 1
-  - Generative AI and Full-Stack Software Engineer for IntroAI (Aug 2024 - Oct 2024)
+  - Generative AI and Full-Stack Software Engineer for my personal project, IntroAI (Aug 2024 - Oct 2024)
     - Developed an AI chatbot that leverages retrieval-augmented generation to take on my identity, allowing others to chat with a virtual version of myself
     - Leveraged LangChain to integrate various services like the Gemini LLM and the MongoDB atlas vector search index in my customised retrieval-augmented generation pipeline, reducing overall development time by over 60% while boosting scalability by over 80%
     - Integrated MongoDB's noSQL database and vector search to conduct semantic search on chunked data, reducing processing times by 30% and reducing token usage by over 70%
@@ -87,13 +89,13 @@
     - Application URL: https://jaredpek.vercel.app
 
 ## Project 2
-  - Generative AI and Full-Stack Software Engineer for Kotaemon (Sep 2024 - Nov 2024)
+  - Generative AI and Full-Stack Software Engineer for an open source project, Kotaemon (Sep 2024 - Nov 2024)
     - Contributed to an open-source application that enables users to customise their own retrieval-augmented generation pipelines and integrate multiple LLMs and embedding models of their choice
     - Designed and implemented the integration of Gemini LLMs and Gemini embedding models to the application's architecture using LangChain, enabling the usage of Gemini models for over 10000 users
     - GitHub URL: https://github.com/jaredpek/Kotaemon
 
 ## Project 3
-  - Full-Stack Software Engineer for MarketIO (Jun 2023 - Jul 2023)
+  - Full-Stack Software Engineer for my personal project, MarketIO (Jun 2023 - Jul 2023)
     - Developed an e-commerce product comparison and analysis platform that aggregates over 150 products on a single page, reducing total search time by over 70%
     - Implemented 5 web scrapers to scrape real-time product data from 5 different e-commerce platforms with an efficient scraping time of less than 1 second each
     - Leveraged the Django REST framework in Python to implement a REST API integrating 5 web scrapers that efficiently handles over 10 CRUD operations with a PostgreSQL database
@@ -107,17 +109,17 @@
     - Developed a dynamic front-end using Next.js with over 25 reusable components, boosting development speed by over 50%
 
 ## Project 5
-  - Generative AI and Back-End Software Engineer for WanderWise (Apr 2024 – Apr 2024)
+  - Generative AI and Back-End Software Engineer for my personal project, WanderWise (Apr 2024 – Apr 2024)
     - Leveraged the Gemini LLM API to generate a full travel itinerary based on input location and number of days travelling, reducing the total time required to plan overseas trips by over 80%
     - Developed a REST API to dynamically generate a JSON itinerary for popular tourist attractions
 
 ## Project 6
-  - Back-End Engineer for Colour Copy Rider (Feb 2024 – Feb 2024)
+  - Back-End Engineer for my hackathon project, Colour Copy Rider (Feb 2024 – Feb 2024)
     - Leveraged ML5.js’ image classification model to conduct real-time object detection and integrated it to a React.js front-end, achieving an efficient detection time of less than 1 second with an 80% success rate
     - Integrated Perplexity’s Mistral 7B Instruct LLM to an Express.js API that generates a 500-word article based on carefully engineered prompts, reducing the time required to write attention-catching articles by over 70%
 
 ## Project 7
-  - Machine Learning Engineer for Stock Signal Classification (Mar 2023 – Apr 2023)
+  - Machine Learning Engineer for my personal project, Stock Signal Classification (Mar 2023 – Apr 2023)
     - Developed a stock signal classification model using SciKit-Learn’s Logistic Regression model with a 95% accuracy in generating a buy or sell signal based on various technical indicators
     - Built a single-page web application using StreamLit that takes input from 4 technical indicators and outputs the model’s prediction within 2 seconds, reducing the time required for technical analysis by over 50%
     - GitHub URL: https://github.com/jaredpek/Technical-Analysis-Signal-Classification

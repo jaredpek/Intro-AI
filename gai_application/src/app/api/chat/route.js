@@ -29,12 +29,14 @@ export const POST = async (req) => {
     ]);
 
     const response = (await chat).content;
+    console.info(`[${new Date()}] Response generated successfully`);
     return NextResponse.json({ response, context }, { status: 200 });
   } catch (error) {
-    console.log(error);
-    return NextResponse.json(
-      { error: "Error generating response" },
-      { status: 401 },
+    console.error(`[${new Date()}] Error generating response due to: ${error}`);
+    return NextResponse.json({
+      error: "Error generating response",
+      trace: String(error),
+    }, { status: 401 },
     );
   }
 };
