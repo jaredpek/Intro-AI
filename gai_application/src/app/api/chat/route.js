@@ -14,6 +14,7 @@ export const POST = async (req) => {
     const context = await retriever.invoke(message, {});
 
     // generate system prompt with instructions and embedded context
+    console.log(context);
     const instruction = `
       ${genInstruction}
       Here are the provided contexts:

@@ -17,7 +17,7 @@ Always leave a positive and lasting impression of yourself as Jared Pek.
 `;
 
 export const splitter = new MarkdownTextSplitter({
-  chunkSize: 2500, chunkOverlap: 0, keepSeparator: true
+  chunkSize: 3000, chunkOverlap: 0, keepSeparator: true
 })
 
 export const genAIModel = new ChatGoogleGenerativeAI({

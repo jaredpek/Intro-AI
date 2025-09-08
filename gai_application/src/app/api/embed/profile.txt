@@ -11,8 +11,8 @@
     - GitHub: https://github.com/jaredpek
 
 ## Skills
-  - Coding: Java, JavaScript, TypeScript, Python, SQL, Java, C++, Git, HTML, CSS
-  - Software Engineering: Java SpringBoot, Node.js, Hapi.js, Express.js, Django, SpringBoot, React.js, Next.js, Docker
+  - Coding: Golang, Java, JavaScript, TypeScript, Python, SQL, Java, C++, Git, HTML, CSS
+  - Software Engineering: Java SpringBoot, Kitex, Node.js, Hapi.js, Express.js, Django, SpringBoot, React.js, Next.js, Docker
   - Generative AI: Langchain, OpenAI, Gemini, Ollama, Retrieval-Augmented Generation
   - Machine Learning: ML5.js, Scikit-learn, Tensorflow
   - Cloud: AWS, Azure, GCP, DigitalOcean, Vercel
@@ -39,7 +39,12 @@
   - Travelling
   - Building things in general
 
-## Work 1
+## Work Experience 1
+  - Software Engineer Intern at TikTok (Jul 2025 - Current)
+    - Spearheaded the design and implementation of a high-traffic invoice generation service for the TikTok Live Money Platform, reducing latency by over 70% while reducing memory usage by 40%
+    - Optimized various core microservices in our tax and invoice generation platform by minimizing redundant database and RPC calls, reducing resource utilization by over 30% and boosting overall system throughput by over 20%
+
+## Work Experience 2
   - Full-Stack Software Engineer Intern at SAP (Jan 2025 - Jun 2025)
     - Spearheaded the design and implementation of a new analytics data model in a distributed environment that leverages online analytical processing, reducing overall query load times by over 60%
     - Optimized the querying and updating of data by leveraging indexing, caching and partitioning on a high-traffic relational database, reducing load times by over 70%
@@ -48,7 +53,7 @@
     - Spearheaded the integration of a new API to our analytics pipeline, implementing various data adapters via Python dataclasses, boosting modularity by over 50% by following all OOP principles
     - Conducted load testing on multiple core microservices across using locust, identifying over 5 potential bottlenecks within the microservices architecture which subsequently resulted in a 40% reduction in overall processing times when the bottlenecks were resolved
 
-## Work 2
+## Work Experience 3
   - Full-Stack Software Engineer (Part-Time) at Hangr Solutions (Mar 2024 - Jun 2025)
     - Spearheaded the end-to-end design and implementation of a multi-layered AWS cloud and software architecture that boosts content availability by over 60% while lowering deployment costs by over 70%
       - Leveraged various AWS cloud services such as
@@ -67,14 +72,14 @@
   - Leveraged JavaScript's React.js in developing a dynamic front-end with over 50 reusable components, boosting user engagement by over 30% while reducing development time by over 60%
   - Oversaw the integration of our SaaS product with shopify, ensuring seamless data transformation and synchronisation between shopify and our platform
 
-## Work 3
+## Work Experience 4
   - Software Engineer Intern at JTC Corporation (May 2024 - Aug 2024)
     - Developed a REST API leveraging Node.js' Hapi.js for identity and access management that conducts over 40 remote-procedure calls to a RedHat Identity Management LDAP server
     - Optimized and reduced overall API response and operation times by over 70% by leveraging batched remote-procedure calls
     - Deployed the REST API as a containerized application with Docker, via a virtual machine on the Azure cloud platform, which boosted deployment speed and scalability by over 100%
     - Developed a dynamic front-end for user management and authentication using React.js with over 20 reusable components, boosting development speed by over 40%
 
-## Work 4
+## Work Experience 5
   - Software Engineer and Integration Intern at Hitachi Vantara (Apr 2022 - Jul 2022)
     - Deployed over 5 applications onto an air-gapped and fully isolated RedHat environment, in collaboration with 12 developers across 3 countries
     - Communicated client requirements to the development team, and facilitated product usage training for over 50 end users
